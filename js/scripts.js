@@ -35,14 +35,27 @@ $(document).ready(function() {
         for(z=0;z<consonants.length;z++){
           consonant=consonants[z];
           for(x=0; x<firstWord.length; x++){
-            if(firstWord.charAt(x)===consonant.toString()){
-              tempConsonant=tempConsonant+consonant;
-              z=0;
-              //firstWord=firstWord.slice(x);
+            if(consonant===firstWord.charAt(x)&&consonant==="q"){
+              if(firstWord.charAt(x+1)==="u"){
+                tempConsonant=tempConsonant+"qu";
+                x++;
+                z=0;
+              }
+              else{
+                tempConsonant=tempConsonant+consonant;
+                z=0;
+              }
             }
             else{
-              firstWord=firstWord.slice(x);
-              x=firstWord.length +1;
+              if(firstWord.charAt(x)===consonant.toString()){
+                tempConsonant=tempConsonant+consonant;
+                z=0;
+                //firstWord=firstWord.slice(x);
+              }
+              else{
+                firstWord=firstWord.slice(x);
+                x=firstWord.length +1;
+              }
             }
           }
 
