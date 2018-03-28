@@ -1,5 +1,10 @@
-var firstWord="";
-var vowels=["a","e","i","o","u"];
+var firstWord = "";
+var vowels = ["a","e","i","o","u"];
+var consonants = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"];
+
+var tempConsonant="";
+var finalWord="";
+var firstVowel=0;
 
 // business logic
 var pigLatin = function(sentence) {
@@ -14,17 +19,45 @@ $(document).ready(function() {
     var index=sentence.indexOf(" ");
     firstWord = sentence.slice(0);
     if (firstWord.length=="1"){
-      vowels.forEach(function(vowel){
+      vowels.forEach(function(vowel)
+      {
         if(firstWord.charAt(0)===vowel.toString()){
           firstWord=firstWord+"ay";
-        } else{}
+        }
+        else{}
       });
-    } else {
-      vowels.forEach(function(vowel){
-        if(firstWord.charAt(0)===vowel.toString()){
+    }
+    else
+    {
+      vowels.forEach(function(vowel) {
+        if(firstWord.charAt(0)===vowel.toString())
+        {
           firstWord=firstWord+"way";
-        } else{};
+          firstVowel++;
+        }
+        else{
+
+        }
       });
+      if(firstVowel==0){
+        consonants.forEach(function(consonant)
+        {
+          for(x=0; x<firstWord.length; x++)
+          {
+            if(firstWord.charAt(x)===consonant.toString())
+            {
+              tempConsonant=tempConsonant+consonant;
+            }
+            else
+            {
+              firstWord=firstWord.slice(x) + tempConsonant;
+              x=firstWord.length +1;
+
+            }
+
+          }
+        });
+      } else{};
     }
 
     $(".output").text(firstWord);
