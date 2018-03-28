@@ -31,12 +31,25 @@ $(document).ready(function() {
       if(firstVowel==0){
         consonants.forEach(function(consonant){
           for(x=0; x<firstWord.length; x++){
-            if(firstWord.charAt(x)===consonant.toString()){
-              tempConsonant=tempConsonant+consonant;
+            if(consonant===firstWord.charAt(x)&&consonant==="q"){
+              if(firstWord.charAt(x+1)==="u"){
+                tempConsonant=tempConsonant+"qu";
+                x++;
+              }
+              else{
+                console.log("before TempConsonant ="+tempConsonant+ "Consonant=" +consonant);
+                tempConsonant=tempConsonant+consonant;
+                console.log("after TempConsonant ="+tempConsonant+ "Consonant=" +consonant);
+              }
             }
             else{
-              firstWord=firstWord.slice(x);
-              x=firstWord.length +1;
+              if(firstWord.charAt(x)===consonant.toString()){
+                tempConsonant=tempConsonant+consonant;
+              }
+              else{
+                firstWord=firstWord.slice(x);
+                x=firstWord.length +1;
+              }
             }
           }
         });
