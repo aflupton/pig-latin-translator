@@ -10,18 +10,23 @@
   </head>
   <body>
     <div class="container">
-    <h1>Pig Latin Translator</h1>
-    <form id="translator">
-      <div id="form-group">
-       <label for="latin">Enter a word or phrase to translate it to Pig Latin:</label>
-       <input id="latin" type="text"> </input>
-      </div>
-       <button class = "btn-btn-warning" type="submit" name="button">"Submit"</button>
-    </form>
+      <h1 class="display-4">Pig Latin Translator: <br>
+      <small class="text-muted">(Oray Pigay Latinay Translatoray)</small>
+      </h1>
 
-    <div id="result">
-       <p><span class="output"></span></p>
-    </div>
+      <form id="translator">
+        <div id="form-group">
+         <label for="latin" class="text-bold">Enter a word or phrase to translate it to Pig Latin:</label>
+         <input id="latin" type="text"> </input>
+         <button class = "btn btn-outline-primary" type="submit" name="button"><strong>"Submit"</strong></button>
+        </div>
+      </form>
+
+      <div id="result" class="text-bold">
+        <div class="jumbotron">
+           <p><span class="output"></span></p>
+        </div>
+      </div>
 
     </div>
   </body>

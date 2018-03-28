@@ -1,3 +1,16 @@
 #result {
   display: none;
+  font-size: 25pt;
+  margin: 10px;
+  float: left;
+}
+form {
+  background-color: lightgrey;
+  border-radius: 10px;
+  padding: 10px;
+  max-width: 75%;
+  text-align: center;
+}
+h1 {
+  margin-top: 20px;
 }

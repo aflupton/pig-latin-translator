@@ -6,7 +6,7 @@
 
 ## Description
 
-_Form takes input and then outputs it as a sentence that has been translated to pig latin._
+_Form takes user input and then outputs it as a sentence that has been translated to pig latin._
 
 _Specs:_
 * _The program should do nothing to non-alphabetical characters, since they do not contain consonant or vowels._
