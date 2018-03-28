@@ -6,64 +6,45 @@ var tempConsonant="";
 var finalWord="";
 var firstVowel=0;
 
-// business logic
-var pigLatin = function(sentence) {
-
-}
-
-// user interface logic
 $(document).ready(function() {
   $("form#translator").submit(function(event) {
     event.preventDefault();
     var sentence = ($("input#latin").val());
-    var index=sentence.indexOf(" ");
+    //var index=sentence.indexOf(" ");
     firstWord = sentence.slice(0);
     if (firstWord.length=="1"){
-      vowels.forEach(function(vowel)
-      {
+      vowels.forEach(function(vowel){
         if(firstWord.charAt(0)===vowel.toString()){
           firstWord=firstWord+"ay";
         }
         else{}
       });
     }
-    else
-    {
+    else {
       vowels.forEach(function(vowel) {
-        if(firstWord.charAt(0)===vowel.toString())
-        {
+        if(firstWord.charAt(0)===vowel.toString()){
           firstWord=firstWord+"way";
           firstVowel++;
         }
-        else{
-
-        }
+        else{}
       });
       if(firstVowel==0){
-        consonants.forEach(function(consonant)
-        {
-          for(x=0; x<firstWord.length; x++)
-          {
-            if(firstWord.charAt(x)===consonant.toString())
-            {
+        consonants.forEach(function(consonant){
+          for(x=0; x<firstWord.length; x++){
+            if(firstWord.charAt(x)===consonant.toString()){
               tempConsonant=tempConsonant+consonant;
             }
-            else
-            {
+            else{
               firstWord=firstWord.slice(x);
               x=firstWord.length +1;
-
             }
-
           }
         });
-        firstWord=firstWord+tempConsonant;
+        firstWord=firstWord+tempConsonant+"ay";
+        tempConsonant="";
       } else{};
     }
-
     $(".output").text(firstWord);
-
-
     $("#result").show();
   });
 });
