@@ -50,13 +50,14 @@ $(document).ready(function() {
             }
             else
             {
-              firstWord=firstWord.slice(x) + tempConsonant;
+              firstWord=firstWord.slice(x);
               x=firstWord.length +1;
 
             }
 
           }
         });
+        firstWord=firstWord+tempConsonant;
       } else{};
     }
 
