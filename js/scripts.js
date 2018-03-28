@@ -1,10 +1,11 @@
 var firstWord = "";
 var vowels = ["a","e","i","o","u"];
-var consonants = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"];
+var consonants = ["b","c","d","f","g","h","j","k","l","m","n","p","q","qu","r","s","t","v","w","x","y","z"];
 
 var tempConsonant="";
 var finalWord="";
 var firstVowel=0;
+var consonant;
 
 $(document).ready(function() {
   $("form#translator").submit(function(event) {
@@ -29,30 +30,25 @@ $(document).ready(function() {
         else{}
       });
       if(firstVowel==0){
-        consonants.forEach(function(consonant){
+        //consonants.forEach(function(consonant){
+
+        for(z=0;z<consonants.length;z++){
+          consonant=consonants[z];
           for(x=0; x<firstWord.length; x++){
-            if(consonant===firstWord.charAt(x)&&consonant==="q"){
-              if(firstWord.charAt(x+1)==="u"){
-                tempConsonant=tempConsonant+"qu";
-                x++;
-              }
-              else{
-                console.log("before TempConsonant ="+tempConsonant+ "Consonant=" +consonant);
-                tempConsonant=tempConsonant+consonant;
-                console.log("after TempConsonant ="+tempConsonant+ "Consonant=" +consonant);
-              }
+            if(firstWord.charAt(x)===consonant.toString()){
+              tempConsonant=tempConsonant+consonant;
+              z=0;
+              //firstWord=firstWord.slice(x);
             }
             else{
-              if(firstWord.charAt(x)===consonant.toString()){
-                tempConsonant=tempConsonant+consonant;
-              }
-              else{
-                firstWord=firstWord.slice(x);
-                x=firstWord.length +1;
-              }
+              firstWord=firstWord.slice(x);
+              x=firstWord.length +1;
             }
           }
-        });
+
+        }
+
+      //  });
         firstWord=firstWord+tempConsonant+"ay";
         tempConsonant="";
       } else{};
