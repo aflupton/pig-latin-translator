@@ -10,14 +10,19 @@ var allWords=[];
 var finalWords=[];
 
 
+
+
 //UI logic
 
 $(document).ready(function() {
   $("form#translator").submit(function(event) {
     event.preventDefault();
+    //input//
     var sentence = $("input#latin").val();
+
+    //split phrase //
     allWords=sentence.split(" ");
-    console.log(allWords);
+
     //var index=sentence.indexOf(" ");
     allWords.forEach(function(word){
       firstWord = word;
@@ -68,7 +73,8 @@ $(document).ready(function() {
       }
       finalWords.push(firstWord);
     });
-    console.log(finalWords);
+
+    //output//
     $(".output").text(finalWords.join(" "));
     $("#result").show();
   });
